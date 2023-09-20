@@ -1,6 +1,10 @@
 package Day8;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 class Bike1 {
 	int bikeVal = 69;
@@ -91,7 +95,17 @@ public class MultEven {
 			System.out.print(carObj);
 		}
 	}
+	
+	public static void shuffleOrder() {
+		System.out.print("\nString List: ");
+		String inputLine = scanner.nextLine();
+		List<String> list = Arrays.stream(inputLine.split(" " )).collect(Collectors.toList());
 
+		Collections.shuffle(list);
+
+		System.out.println(list);
+	}
+	
 	public static void main(String[] args) {
 		// System.out.println("\nAnswer : "+getMultipleOfEvensAndOdds());
 
@@ -112,6 +126,7 @@ public class MultEven {
 		 * // How to use // this protected?
 		 */
 		// CARS
-		carWith2Contstructor();
+		// carWith2Contstructor();
+		shuffleOrder();
 	}
 }
