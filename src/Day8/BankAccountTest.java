@@ -2,43 +2,6 @@ package Day8;
 
 import java.util.HashMap;
 import java.util.Scanner;
-/*
-class BankAccount {
-	static int id;
-	static double balance;
-	static double interest;
-	static int bankAccountCount = 0;
-
-	BankAccount() {
-		BankAccount.id = ++bankAccountCount;
-		System.out.println("Account #" + id + " created");
-	}
-
-	BankAccount(int id, double balance, double interest) {
-		BankAccount.id = id;
-		BankAccount.balance = balance;
-		BankAccount.interest = 0.15;
-		System.out.println("Account #" + id + " created");
-	}
-
-	public void setInterest(double interest) {
-		BankAccount.interest = interest;
-		System.out.println("Interest rate changed: " + interest);
-	}
-
-	public void deposit(double deposit) {
-		BankAccount.balance += deposit;
-		System.out.println("Deposited " + deposit + " to Account #" + BankAccount.id);
-	}
-
-	public void calcInterest(int months) {
-		System.out.println("Interest: " + (BankAccount.balance * BankAccount.interest * months / 12));
-	}
-
-	public int getID() {
-		return BankAccount.id;
-	}
-}*/
 
 public class BankAccountTest {
 	static Scanner scanner = new Scanner(System.in);
@@ -92,34 +55,28 @@ public class BankAccountTest {
 
 				BankAccountTest acc = new BankAccountTest();
 
-				System.out.print(acc.getID());
-				accounts.put(acc.getID(), acc);
+				System.out.print(BankAccountTest.getID());
+				accounts.put(BankAccountTest.getID(), acc);
 				break;
 			case "deposit":
-				for (int id=1; id<=accounts.keySet().size();id++) {
-					BankAccountTest ACC = accounts.get(id);
-					if (id == Integer.parseInt(items[1])) {
-
-						// System.out.print("AAA");
-						ACC.deposit(Double.parseDouble(items[2]));
-						// System.out.print("AAA");
-						break;
-					}
+				if (accounts.containsKey(Integer.parseInt(items[1]))) {
+					accounts.get(Integer.parseInt(items[1])).deposit(Double.parseDouble(items[2]));
+					break;
 				}
 				break;
 			case "set-interest":
-				for (int id : accounts.keySet()) {
-					BankAccountTest ACC = accounts.get(id);
-					if (ACC.id == Integer.parseInt(items[1]))
-						ACC.setInterest(Double.parseDouble(items[1]));
-				}
+				/*
+				 * for (int id : accounts.keySet()) { BankAccountTest ACC = accounts.get(id); if
+				 * (ACC.id == Integer.parseInt(items[1]))
+				 * ACC.setInterest(Double.parseDouble(items[1])); }
+				 */
 				break;
 			case "calc-interest":
-				for (int id : accounts.keySet()) {
-					BankAccountTest ACC = accounts.get(id);
-					if (ACC.id == Integer.parseInt(items[1]))
-						ACC.calcInterest(Integer.parseInt(items[2]));
-				}
+				/*
+				 * for (int id : accounts.keySet()) { BankAccountTest ACC = accounts.get(id); if
+				 * (ACC.id == Integer.parseInt(items[1]))
+				 * ACC.calcInterest(Integer.parseInt(items[2])); }
+				 */
 				break;
 			default:
 				System.out.println("Invalid command");
