@@ -119,12 +119,12 @@ public class StringProcessing {
 		System.out.println(String.format("|%06d|", 99));
 		System.out.println(String.format("|%06.2f|", 9.9));
 	}
-	
+
 	public static void interestCalculator() {
 		BigDecimal initialAmount = new BigDecimal(scanner.next());
 		BigDecimal interestRate = new BigDecimal(scanner.next());
 		BigDecimal hundred = new BigDecimal(100);
-		
+
 		BigDecimal total = initialAmount.add(initialAmount.multiply(interestRate.divide(hundred)));
 		System.out.print(total);
 	}
@@ -142,6 +142,6 @@ public class StringProcessing {
 //		randomSeq();
 //		randomNumberInRange();
 //		formatStrings();
-		interestCalculator();
+		// interestCalculator();
 	}
 }
